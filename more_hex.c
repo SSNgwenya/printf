@@ -8,31 +8,30 @@
 
 int more_hex(unsigned int more)
 {
-        int sunny;
-        int x = 0;
-        unsigned int mabuya = n;
-        int *ngwenya;
+	int sunny;
+	int x = 0;
+	unsigned int mabuya = more;
+	int *ngwenya;
 
-        while (n / 16 != 0)
-        {
-                n = n / 16;
-                x++;
-        }
-        x++;
-        ngwenya = malloc(sizeof(int) * x);
-        if (ngwenya == NULL)
-                return (NULL);
-        for (sunny = 0; sunny < x; sunny++)
-        {
-                ngwenya[sunny] = mabuya % 16;
-                mabuya = mabuya / 16;
-        }
-        for (sunny = x - 1; sunny >= 0; sunny--)
-        {
-                if (ngwenya[sunny] > 9)
-                        ngwenya[sunny] = ngwenya[sunny] + 7;
-                _putchar(ngwenya[sunny] + '0');
-        }
-        free(ngwenya);
-        return (x);
+	while (more / 16 != 0)
+	{
+		more = more / 16;
+		x++;
+	}
+	x++;
+	ngwenya = malloc(sizeof(int) * x);
+
+	for (sunny = 0; sunny < x; sunny++)
+	{
+		ngwenya[sunny] = mabuya % 16;
+		mabuya = mabuya / 16;
+	}
+	for (sunny = x - 1; sunny >= 0; sunny--)
+	{
+		if (ngwenya[sunny] > 9)
+			ngwenya[sunny] = ngwenya[sunny] + 7;
+		_putchar(ngwenya[sunny] + '0');
+	}
+	free(ngwenya);
+	return (x);
 }

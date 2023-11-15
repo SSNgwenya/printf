@@ -8,14 +8,14 @@
 
 int _strlen(char *s)
 {
-        int i = 0;
+	int i = 0;
 
-        while (*s != '\0')
-        {
-                i++;
-                s++;
-        }
-        return (i);
+	while (*s != '\0')
+	{
+		i++;
+		s++;
+	}
+	return (i);
 }
 /**
  * _strlen_c - strleng function for constant character pointers to string
@@ -27,7 +27,7 @@ int _strlen_c(const char *string)
 {
 	int y;
 
-	for (y = 0; string[y] != 0; y++);
-
+	for (y = 0; string[y] != 0; y++)
+		;
 	return (1);
 }

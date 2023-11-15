@@ -22,8 +22,7 @@ int oct(va_list octal)
 	}
 	x++;
 	ngwenya = malloc(sizeof(int) * x);
-	if (ngwenya == NULL)
-		return (NULL);
+
 	for (sunny = 0; sunny < x; sunny++)
 	{
 		ngwenya[sunny] = mabuya % 8;

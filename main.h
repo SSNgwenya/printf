@@ -5,20 +5,12 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
 
-/* FLAGS */
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
-/* SIZES */
-#define S_LONG 2
-#define S_SHORT 1
-
+typedef struct format
+{
+	char *ds;
+	int (*k)();
+}match;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -38,7 +30,8 @@ int sunny(va_list king);
 int more_hex(unsigned int more);
 int _pointer(va_list point);
 int another_hex(unsigned long int val);
-
+int reverse(va_list rev);
+int rot13(va_list rot);
 
 
 

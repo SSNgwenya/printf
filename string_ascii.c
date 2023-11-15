@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * sunny - prints string
+ * @king: value
+ * Return: number of char printed
+ */
 
 int sunny(va_list king)
 {
@@ -10,7 +14,7 @@ int sunny(va_list king)
 
 	phakathi = va_arg(king, char *);
 	if (phakathi == NULL)
-	phakathi = "(null)";
+		phakathi = "(null)";
 	for (i = 0; phakathi[i] != '\0'; i++)
 	{
 		if (phakathi[i] < 32 || phakathi[i] >= 127)
@@ -24,7 +28,7 @@ int sunny(va_list king)
 				_putchar('\0');
 				length++;
 			}
-			length = length + mpangazitha(num);
+			length = length + more_hex(num);
 		}
 		else
 		{

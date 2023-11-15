@@ -58,14 +58,14 @@ int print_int(va_list args)
 {
 	int b = va_arg(args, int);
 	int n;
-	int l = n % 10;
+	int l = b % 10;
 	int d;
 	int ty = 1;
 	int i = 1;
-	
+
 	b = b / 10;
 	n = b;
-	
+
 	if (l < 0)
 	{
 		_putchar('-');

@@ -14,8 +14,8 @@ int _pointer(va_list point)
 	long int z;
 	int a;
 
-	p = va_arg(point, void *):
-		if (p == NULL)
+	p = va_arg(point, void *);
+	if (p == NULL)
 	{
 		for (i = 0; s[i] != '\0'; i++)
 			_putchar(s[i]);

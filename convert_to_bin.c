@@ -32,7 +32,7 @@ int convert_to_bin(va_list bin)
 	if (z == 0)
 	{
 		z++;
-		_putchar('0')	;
+		_putchar('0');
 	}
 	return (z);
 }

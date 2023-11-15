@@ -14,8 +14,8 @@ int print_string(va_list k)
 	char *string;
 	int length;
 
-	str = va_arg(k, char *);
-	if (str = NULL)
+	string = va_arg(k, char *);
+	if (string == NULL)
 	{
 		string = "(null)";
 		length = _strlen(string);
@@ -28,6 +28,6 @@ int print_string(va_list k)
 		length = _strlen(string);
 		for (x = 0; x < length; x++)
 			_putchar(string[x]);
-		return (length)
+		return (length);
 	}
 }
