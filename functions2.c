@@ -66,7 +66,7 @@ int print_pointer(va_list types, char buffer[],
 int print_non_printable(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int a = 0, offset = 0;
+	int i = 0, offset = 0;
 	char *str = va_arg(types, char *);
 
 	UNUSED(flags);
@@ -77,19 +77,19 @@ int print_non_printable(va_list types, char buffer[],
 	if (str == NULL)
 		return (write(1, "(null)", 6));
 
-	while (str[a] != '\0')
+	while (str[i] != '\0')
 	{
-		if (is_printable(str[a]))
-			buffer[a + offset] = str[a];
+		if (is_printable(str[i]))
+			buffer[i + offset] = str[i];
 		else
-			offset += append_hexa_code(str[a], buffer, a + offset);
+			offset += append_hexa_code(str[i], buffer, i + offset);
 
-		a++;
+		i++;
 	}
 
-	buffer[a + offset] = '\0';
+	buffer[i + offset] = '\0';
 
-	return (write(1, buffer, a + offset));
+	return (write(1, buffer, i + offset));
 }
 
 /************************* PRINT REVERSE *************************/
@@ -108,7 +108,7 @@ int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char *str;
-	int a, count = 0;
+	int i, count = 0;
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -122,20 +122,19 @@ int print_reverse(va_list types, char buffer[],
 		UNUSED(precision);
 
 		str = ")Null(";
-		}
-	for (a = 0; str[a]; a++)
+	}
+	for (i = 0; str[i]; i++)
 		;
 
-	for (a = a - 1; a >= 0; a--)
+	for (i = i - 1; i >= 0; i--)
 	{
-		char z = str[a];
+		char z = str[i];
 
 		write(1, &z, 1);
 		count++;
 	}
 	return (count);
 }
-
 /************************* PRINT A STRING IN ROT13 *************************/
 /**
  * print_rot13string - Print a string in rot13.
@@ -149,10 +148,10 @@ int print_reverse(va_list types, char buffer[],
  */
 int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
-{
+	{
 	char x;
 	char *str;
-	unsigned int a, j;
+	unsigned int i, j;
 	int count = 0;
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
@@ -166,11 +165,11 @@ int print_rot13string(va_list types, char buffer[],
 
 	if (str == NULL)
 		str = "(AHYY)";
-	for (a = 0; str[a]; a++)
+	for (i = 0; str[i]; i++)
 	{
 		for (j = 0; in[j]; j++)
 		{
-			if (in[j] == str[a])
+			if (in[j] == str[i])
 			{
 				x = out[j];
 				write(1, &x, 1);
@@ -180,7 +179,7 @@ int print_rot13string(va_list types, char buffer[],
 		}
 		if (!in[j])
 		{
-			x = str[a];
+			x = str[i];
 			write(1, &x, 1);
 			count++;
 		}
